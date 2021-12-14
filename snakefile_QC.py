@@ -26,14 +26,14 @@ for sample in SampleList:
         
         
 def get_fastq_R1(wildcards):
-    if path_format == 0:  # format 1
+    if path_format == 0:  
         fq_R1=f"{raw_data_dir}/{wildcards.sample}/{wildcards.sample}_R1.fastq.gz",
     else:
         fq_R1=f"{raw_data_dir}/{wildcards.sample}_R1.fastq.gz",
     return fq_R1 
 
 def get_fastq_R2(wildcards):
-    if path_format == 0:  # format 1
+    if path_format == 0:  
         fq_R2=f"{raw_data_dir}/{wildcards.sample}/{wildcards.sample}_R2.fastq.gz",
     else:
         fq_R2=f"{raw_data_dir}/{wildcards.sample}_R2.fastq.gz",
