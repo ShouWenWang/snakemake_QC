@@ -1,0 +1,12 @@
+script_dir: '/n/groups/klein/shouwen/lili_project/packages/snakemake_multiomics/source'
+raw_data_dir: 'raw_fastq' # relative or absolute dir to the config file
+path_format: 0 # format=0, the file is like {raw_data_dir}/{sample}/{sample}.fastq.gz;  
+          # format=1, the file is like  {raw_data_dir}/{sample}.fastq.gz
+SampleList: ['test_DNA_Lime','test_LARRY_10X'] 
+sbatch : 1 # 1, run sbatch job;  
+           # 0, run in the interactive mode. 
+QC:
+    max_run_time : 3 # used only if sbatch=1
+    requested_memory : '10G' # used only if sbatch=1
+    cores: 2
+recompute : 0

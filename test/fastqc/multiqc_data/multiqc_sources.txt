@@ -1,0 +1,5 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	test_LARRY_10X_R2	/n/groups/klein/shouwen/lili_project/packages/snakemake_QC/test/fastqc/test_LARRY_10X_R2_fastqc.zip
+FastQC	all_sections	test_LARRY_10X_R1	/n/groups/klein/shouwen/lili_project/packages/snakemake_QC/test/fastqc/test_LARRY_10X_R1_fastqc.zip
+FastQC	all_sections	test_DNA_Lime_R1	/n/groups/klein/shouwen/lili_project/packages/snakemake_QC/test/fastqc/test_DNA_Lime_R1_fastqc.zip
+FastQC	all_sections	test_DNA_Lime_R2	/n/groups/klein/shouwen/lili_project/packages/snakemake_QC/test/fastqc/test_DNA_Lime_R2_fastqc.zip
