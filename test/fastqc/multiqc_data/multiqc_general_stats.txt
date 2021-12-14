@@ -1,5 +1,0 @@
-Sample	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-percent_gc	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-total_sequences
-test_DNA_Lime_R1	10.480000000000004	36.0	150.0	25.0	10000.0
-test_DNA_Lime_R2	9.840000000000003	35.0	150.0	25.0	10000.0
-test_LARRY_10X_R1	16.25	40.0	150.0	16.666666666666664	10000.0
-test_LARRY_10X_R2	93.82999997455114	50.0	150.0	41.66666666666667	10000.0
