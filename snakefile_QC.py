@@ -27,14 +27,14 @@ for sample in SampleList:
         
 def get_fastq_R1(wildcards):
     if path_format == 0:  
-        fq_R1=f"{raw_data_dir}/{wildcards.sample}/{wildcards.sample}_R1.fastq.gz",
+        fq_R1=f"{raw_data_dir}/{wildcards.sample}",
     else:
         fq_R1=f"{raw_data_dir}/{wildcards.sample}_R1.fastq.gz",
     return fq_R1 
 
 def get_fastq_R2(wildcards):
     if path_format == 0:  
-        fq_R2=f"{raw_data_dir}/{wildcards.sample}/{wildcards.sample}_R2.fastq.gz",
+        fq_R2=f"{raw_data_dir}/{wildcards.sample}",
     else:
         fq_R2=f"{raw_data_dir}/{wildcards.sample}_R2.fastq.gz",
     return fq_R2
@@ -52,15 +52,13 @@ rule fastqc:
         fq_R2=get_fastq_R2,
     output:
         touch("fastqc/{sample}_R1_fastqc.done"),
-        touch("fastqc/{sample}_R2_fastqc.done"),
     run:
-        command_1=f"sh {script_dir}/run_fastqc.sh {input.fq_R1} fastqc"  # can use input[0]
-        command_2=f"sh {script_dir}/run_fastqc.sh {input.fq_R2} fastqc"  # can use input[1]
+        command=f"sh {script_dir}/run_fastqc.sh {input.fq_R1} {wildcards.sample} fastqc"  # can use input[0]
         time=config['QC']['max_run_time']
         mem=config['QC']['requested_memory']
         cores=config['QC']['cores']
         job_name=wildcards.sample
-        for command in [command_1,command_2]:
+        for command in [command]:
             if config['sbatch']==0:
                 print("Run on terminal directly")
                 os.system(command)
@@ -68,7 +66,7 @@ rule fastqc:
                 os.system(f"python {script_dir}/run_sbatch.py --job_name {job_name} --cores {cores} --mem {mem} --time {time} --command '{command}' ") # we use ' in '{command}' to avoid bash expansion
 
 
-rule multiqc_for_fastqc:
+rule multiqc:
     input:
         expand("fastqc/{sample}_R1_fastqc.done",sample=SampleList)
     output:
